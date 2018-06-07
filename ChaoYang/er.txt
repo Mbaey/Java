@@ -1,0 +1,9 @@
+create table tb_user(
+id int auto_increment primary key,
+username varchar(12),
+nickname varchar(4),
+password varchar(12),
+birth date,
+gender char(1),
+favorite varchar(32)
+)

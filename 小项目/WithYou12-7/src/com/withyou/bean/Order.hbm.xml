@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.withyou.bean">
+	<class name="Order" table="orders">
+		<id name="o_no" column="o_no">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="u_from" />
+		<property name="u_to" />
+		<property name="o_name" />
+		<property name="o_desc" />
+		<property name="o_price" />
+		<property name="o_s_time" />
+		<property name="o_e_time" />
+		<property name="o_finish" />
+	</class>
+
+</hibernate-mapping>

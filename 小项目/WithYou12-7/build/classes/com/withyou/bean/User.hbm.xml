@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.withyou.bean">
+	<class name="User" table="user">
+		<id name="u_no" column="u_no">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="u_name" />
+		<property name="u_pwd" />
+		<property name="u_addr" />
+		<property name="u_tel" />
+		<property name="u_credit" />
+	</class>
+
+</hibernate-mapping>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.withyou.bean">
+	<class name="Mgr" table="manager">
+		<id name="m_no" column="m_no">
+			<generator class="native">
+			</generator>
+		</id>
+		<property name="m_name" />
+		<property name="m_pwd" />
+	</class>
+
+</hibernate-mapping>

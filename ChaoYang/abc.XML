@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>myFirst.property</comment>
+<entry key="15">be</entry>
+<entry key="14">may</entry>
+<entry key="13">Li</entry>
+<entry key="12">abc</entry>
+</properties>
