@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.nwnu.emall.dao.GoodsItemMapper">
+  <resultMap id="BaseResultMap" type="com.nwnu.emall.bean.GoodsItem">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="enable" jdbcType="TINYINT" property="enable" />
+    <result column="shopId" jdbcType="BIGINT" property="shopid" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="subtitle" jdbcType="VARCHAR" property="subtitle" />
+    <result column="price" jdbcType="INTEGER" property="price" />
+    <result column="images" jdbcType="VARCHAR" property="images" />
+    <result column="vedios" jdbcType="VARCHAR" property="vedios" />
+    <result column="categoryId" jdbcType="BIGINT" property="categoryid" />
+    <result column="rootCategoryId" jdbcType="BIGINT" property="rootcategoryid" />
+    <result column="skuText" jdbcType="VARCHAR" property="skutext" />
+    <result column="favcount" jdbcType="BIGINT" property="favcount" />
+    <result column="tmallDescUrl" jdbcType="VARCHAR" property="tmalldescurl" />
+    <result column="extData" jdbcType="VARCHAR" property="extdata" />
+    <result column="props" jdbcType="VARCHAR" property="props" />
+    <result column="totalCommentCount" jdbcType="BIGINT" property="totalcommentcount" />
+    <result column="monthSellCount" jdbcType="BIGINT" property="monthsellcount" />
+    <result column="froms" jdbcType="VARCHAR" property="froms" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, enable, shopId, title, subtitle, price, images, vedios, categoryId, rootCategoryId, 
+    skuText, favcount, tmallDescUrl, extData, props, totalCommentCount, monthSellCount, 
+    froms
+  </sql>
+  <select id="selectByExample" parameterType="com.nwnu.emall.bean.GoodsItemExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_goods_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_goods_item
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from tb_goods_item
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.nwnu.emall.bean.GoodsItemExample">
+    delete from tb_goods_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.nwnu.emall.bean.GoodsItem">
+    insert into tb_goods_item (id, enable, shopId, 
+      title, subtitle, price, 
+      images, vedios, categoryId, 
+      rootCategoryId, skuText, favcount, 
+      tmallDescUrl, extData, props, 
+      totalCommentCount, monthSellCount, froms
+      )
+    values (#{id,jdbcType=BIGINT}, #{enable,jdbcType=TINYINT}, #{shopid,jdbcType=BIGINT}, 
+      #{title,jdbcType=VARCHAR}, #{subtitle,jdbcType=VARCHAR}, #{price,jdbcType=INTEGER}, 
+      #{images,jdbcType=VARCHAR}, #{vedios,jdbcType=VARCHAR}, #{categoryid,jdbcType=BIGINT}, 
+      #{rootcategoryid,jdbcType=BIGINT}, #{skutext,jdbcType=VARCHAR}, #{favcount,jdbcType=BIGINT}, 
+      #{tmalldescurl,jdbcType=VARCHAR}, #{extdata,jdbcType=VARCHAR}, #{props,jdbcType=VARCHAR}, 
+      #{totalcommentcount,jdbcType=BIGINT}, #{monthsellcount,jdbcType=BIGINT}, #{froms,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.nwnu.emall.bean.GoodsItem">
+    insert into tb_goods_item
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="enable != null">
+        enable,
+      </if>
+      <if test="shopid != null">
+        shopId,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="subtitle != null">
+        subtitle,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="images != null">
+        images,
+      </if>
+      <if test="vedios != null">
+        vedios,
+      </if>
+      <if test="categoryid != null">
+        categoryId,
+      </if>
+      <if test="rootcategoryid != null">
+        rootCategoryId,
+      </if>
+      <if test="skutext != null">
+        skuText,
+      </if>
+      <if test="favcount != null">
+        favcount,
+      </if>
+      <if test="tmalldescurl != null">
+        tmallDescUrl,
+      </if>
+      <if test="extdata != null">
+        extData,
+      </if>
+      <if test="props != null">
+        props,
+      </if>
+      <if test="totalcommentcount != null">
+        totalCommentCount,
+      </if>
+      <if test="monthsellcount != null">
+        monthSellCount,
+      </if>
+      <if test="froms != null">
+        froms,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=TINYINT},
+      </if>
+      <if test="shopid != null">
+        #{shopid,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitle != null">
+        #{subtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=INTEGER},
+      </if>
+      <if test="images != null">
+        #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="vedios != null">
+        #{vedios,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        #{categoryid,jdbcType=BIGINT},
+      </if>
+      <if test="rootcategoryid != null">
+        #{rootcategoryid,jdbcType=BIGINT},
+      </if>
+      <if test="skutext != null">
+        #{skutext,jdbcType=VARCHAR},
+      </if>
+      <if test="favcount != null">
+        #{favcount,jdbcType=BIGINT},
+      </if>
+      <if test="tmalldescurl != null">
+        #{tmalldescurl,jdbcType=VARCHAR},
+      </if>
+      <if test="extdata != null">
+        #{extdata,jdbcType=VARCHAR},
+      </if>
+      <if test="props != null">
+        #{props,jdbcType=VARCHAR},
+      </if>
+      <if test="totalcommentcount != null">
+        #{totalcommentcount,jdbcType=BIGINT},
+      </if>
+      <if test="monthsellcount != null">
+        #{monthsellcount,jdbcType=BIGINT},
+      </if>
+      <if test="froms != null">
+        #{froms,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.nwnu.emall.bean.GoodsItemExample" resultType="java.lang.Long">
+    select count(*) from tb_goods_item
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_goods_item
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.enable != null">
+        enable = #{record.enable,jdbcType=TINYINT},
+      </if>
+      <if test="record.shopid != null">
+        shopId = #{record.shopid,jdbcType=BIGINT},
+      </if>
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subtitle != null">
+        subtitle = #{record.subtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=INTEGER},
+      </if>
+      <if test="record.images != null">
+        images = #{record.images,jdbcType=VARCHAR},
+      </if>
+      <if test="record.vedios != null">
+        vedios = #{record.vedios,jdbcType=VARCHAR},
+      </if>
+      <if test="record.categoryid != null">
+        categoryId = #{record.categoryid,jdbcType=BIGINT},
+      </if>
+      <if test="record.rootcategoryid != null">
+        rootCategoryId = #{record.rootcategoryid,jdbcType=BIGINT},
+      </if>
+      <if test="record.skutext != null">
+        skuText = #{record.skutext,jdbcType=VARCHAR},
+      </if>
+      <if test="record.favcount != null">
+        favcount = #{record.favcount,jdbcType=BIGINT},
+      </if>
+      <if test="record.tmalldescurl != null">
+        tmallDescUrl = #{record.tmalldescurl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.extdata != null">
+        extData = #{record.extdata,jdbcType=VARCHAR},
+      </if>
+      <if test="record.props != null">
+        props = #{record.props,jdbcType=VARCHAR},
+      </if>
+      <if test="record.totalcommentcount != null">
+        totalCommentCount = #{record.totalcommentcount,jdbcType=BIGINT},
+      </if>
+      <if test="record.monthsellcount != null">
+        monthSellCount = #{record.monthsellcount,jdbcType=BIGINT},
+      </if>
+      <if test="record.froms != null">
+        froms = #{record.froms,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_goods_item
+    set id = #{record.id,jdbcType=BIGINT},
+      enable = #{record.enable,jdbcType=TINYINT},
+      shopId = #{record.shopid,jdbcType=BIGINT},
+      title = #{record.title,jdbcType=VARCHAR},
+      subtitle = #{record.subtitle,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=INTEGER},
+      images = #{record.images,jdbcType=VARCHAR},
+      vedios = #{record.vedios,jdbcType=VARCHAR},
+      categoryId = #{record.categoryid,jdbcType=BIGINT},
+      rootCategoryId = #{record.rootcategoryid,jdbcType=BIGINT},
+      skuText = #{record.skutext,jdbcType=VARCHAR},
+      favcount = #{record.favcount,jdbcType=BIGINT},
+      tmallDescUrl = #{record.tmalldescurl,jdbcType=VARCHAR},
+      extData = #{record.extdata,jdbcType=VARCHAR},
+      props = #{record.props,jdbcType=VARCHAR},
+      totalCommentCount = #{record.totalcommentcount,jdbcType=BIGINT},
+      monthSellCount = #{record.monthsellcount,jdbcType=BIGINT},
+      froms = #{record.froms,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nwnu.emall.bean.GoodsItem">
+    update tb_goods_item
+    <set>
+      <if test="enable != null">
+        enable = #{enable,jdbcType=TINYINT},
+      </if>
+      <if test="shopid != null">
+        shopId = #{shopid,jdbcType=BIGINT},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="subtitle != null">
+        subtitle = #{subtitle,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=INTEGER},
+      </if>
+      <if test="images != null">
+        images = #{images,jdbcType=VARCHAR},
+      </if>
+      <if test="vedios != null">
+        vedios = #{vedios,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryid != null">
+        categoryId = #{categoryid,jdbcType=BIGINT},
+      </if>
+      <if test="rootcategoryid != null">
+        rootCategoryId = #{rootcategoryid,jdbcType=BIGINT},
+      </if>
+      <if test="skutext != null">
+        skuText = #{skutext,jdbcType=VARCHAR},
+      </if>
+      <if test="favcount != null">
+        favcount = #{favcount,jdbcType=BIGINT},
+      </if>
+      <if test="tmalldescurl != null">
+        tmallDescUrl = #{tmalldescurl,jdbcType=VARCHAR},
+      </if>
+      <if test="extdata != null">
+        extData = #{extdata,jdbcType=VARCHAR},
+      </if>
+      <if test="props != null">
+        props = #{props,jdbcType=VARCHAR},
+      </if>
+      <if test="totalcommentcount != null">
+        totalCommentCount = #{totalcommentcount,jdbcType=BIGINT},
+      </if>
+      <if test="monthsellcount != null">
+        monthSellCount = #{monthsellcount,jdbcType=BIGINT},
+      </if>
+      <if test="froms != null">
+        froms = #{froms,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nwnu.emall.bean.GoodsItem">
+    update tb_goods_item
+    set enable = #{enable,jdbcType=TINYINT},
+      shopId = #{shopid,jdbcType=BIGINT},
+      title = #{title,jdbcType=VARCHAR},
+      subtitle = #{subtitle,jdbcType=VARCHAR},
+      price = #{price,jdbcType=INTEGER},
+      images = #{images,jdbcType=VARCHAR},
+      vedios = #{vedios,jdbcType=VARCHAR},
+      categoryId = #{categoryid,jdbcType=BIGINT},
+      rootCategoryId = #{rootcategoryid,jdbcType=BIGINT},
+      skuText = #{skutext,jdbcType=VARCHAR},
+      favcount = #{favcount,jdbcType=BIGINT},
+      tmallDescUrl = #{tmalldescurl,jdbcType=VARCHAR},
+      extData = #{extdata,jdbcType=VARCHAR},
+      props = #{props,jdbcType=VARCHAR},
+      totalCommentCount = #{totalcommentcount,jdbcType=BIGINT},
+      monthSellCount = #{monthsellcount,jdbcType=BIGINT},
+      froms = #{froms,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

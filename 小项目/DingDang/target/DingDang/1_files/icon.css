@@ -1,0 +1,222 @@
+.icon-new{
+	background:url(./icons/new.png) no-repeat;
+}
+.icon-print-option{
+	background:url(./icons/print_option.png) no-repeat;
+}
+.icon-print-preview{
+	background:url(./icons/print_preview.png) no-repeat;
+}
+.icon-export{
+	background:url(./icons/export.png) no-repeat;
+}
+.icon-copy{
+	background:url(./icons/copy.png) no-repeat;
+}
+.icon-exam{
+	background:url(./icons/exam.png) no-repeat;
+}
+.icon-unexam{
+	background:url(./icons/unexam.png) no-repeat;
+}
+.icon-submit{
+	background:url(./icons/submit.png) no-repeat;
+}
+.icon-unsubmit{
+	background:url(./icons/unsubmit.png) no-repeat;
+}
+.icon-refresh{
+	background:url(./icons/refresh.png) no-repeat;
+}
+.icon-first{
+	background:url(./icons/nav_first.png) no-repeat;
+}
+.icon-last{
+	background:url(./icons/nav_last.png) no-repeat;
+}
+.icon-back{
+	background:url(./icons/nav_back.png) no-repeat;
+}
+.icon-forward{
+	background:url(./icons/nav_forward.png) no-repeat;
+}
+.icon-fullscreen{
+	background:url(./icons/fullscreen.png) no-repeat;
+}
+.icon-exit{
+	background:url(./icons/exit.png) no-repeat;
+}
+.icon-giveup{
+	background:url(./icons/giveup.png) no-repeat;
+}
+.icon-clear{
+	background:url(./icons/clear.png) no-repeat;
+}
+.icon-list {
+    background: url(./icons/list.png) no-repeat;
+}
+.icon-import {
+    background: url(./icons/import.png) no-repeat;
+}
+.icon-backup {
+    background: url(./icons/backup.png) no-repeat;
+}
+.icon-restore {
+    background: url(./icons/restore.png) no-repeat;
+}
+.icon-sync {
+    background: url(./icons/sync.png) no-repeat;
+}
+.icon-stop {
+    background: url(./icons/stop.gif) no-repeat;
+}
+.icon-start {
+    background: url(./icons/start.gif) no-repeat;
+}
+.icon-blank{
+	background:url('icons/blank.gif') no-repeat center center;
+}
+.icon-add{
+	background:url('icons/edit_add.png') no-repeat center center;
+}
+.icon-edit{
+	background:url('icons/pencil.png') no-repeat center center;
+}
+.icon-remove{
+	background:url('icons/edit_remove.png') no-repeat center center;
+}
+.icon-save{
+	background:url('icons/filesave.png') no-repeat center center;
+}
+.icon-cut{
+	background:url('icons/cut.png') no-repeat center center;
+}
+.icon-ok{
+	background:url('icons/ok.png') no-repeat center center;
+}
+.icon-no{
+	background:url('icons/no.png') no-repeat center center;
+}
+.icon-cancel{
+	background:url('icons/cancel.png') no-repeat center center;
+}
+.icon-reload{
+	background:url('icons/reload.png') no-repeat center center;
+}
+.icon-search{
+	background:url('icons/search.png') no-repeat center center;
+}
+.icon-print{
+	background:url('icons/print.png') no-repeat center center;
+}
+.icon-help{
+	background:url('icons/help.png') no-repeat center center;
+}
+.icon-undo{
+	background:url('icons/undo.png') no-repeat center center;
+}
+.icon-redo{
+	background:url('icons/redo.png') no-repeat center center;
+}
+.icon-back{
+	background:url('icons/back.png') no-repeat center center;
+}
+.icon-sum{
+	background:url('icons/sum.png') no-repeat center center;
+}
+.icon-tip{
+	background:url('icons/tip.png') no-repeat center center;
+}
+.icon-filter{
+	background:url('icons/filter.png') no-repeat center center;
+}
+
+.icon-more{
+	background:url('icons/more.png') no-repeat center center;
+}
+.icon-login{
+	background:url('icons/login.png') no-repeat center center;
+}
+.icon-man{
+	background:url('icons/man.png') no-repeat center center;
+}
+.icon-lock{
+	background:url('icons/lock.png') no-repeat center center;
+}
+.icon-choice{
+	background:url('icons/choice.png') no-repeat center center;
+}
+.icon-excel{
+	background:url('icons/excel.png') no-repeat center center;
+}
+.icon-menuopen{
+	background:url('icons/menuopen.png') no-repeat center center;
+}
+.icon-person{
+	background:url('icons/person.png') no-repeat center center;
+}
+.icon-menuopen{
+	background:url('icons/menuopen.png') no-repeat center center;
+}
+.icon-course{
+	background:url('icons/course.png') no-repeat center center;
+}
+.icon-coursetable{
+	background:url('icons/course_table.png') no-repeat center center;
+}
+.icon-examstaff{
+	background:url('icons/exam_staff.png') no-repeat center center;
+}
+.icon-examstudent{
+	background:url('icons/exam_student.png') no-repeat center center;
+}
+.icon-result{
+	background:url('icons/result.png') no-repeat center center;
+}
+.icon-studentid{
+	background:url('icons/studentid.png') no-repeat center center;
+}
+.icon-evaluation{
+	background:url('icons/evaluation.png') no-repeat center center;
+}
+.icon-my{
+	background:url('icons/my.png') no-repeat center center;
+}
+.icon-selcourse{
+	background:url('icons/selcourse.png') no-repeat center center;
+}
+.icon-password{
+	background:url('icons/password.png') no-repeat center center;
+}
+.icon-leave{
+	background:url('icons/leave.png') no-repeat center center;
+}
+
+
+
+
+.icon-mini-add{
+	background:url('icons/mini_add.png') no-repeat center center;
+}
+.icon-mini-edit{
+	background:url('icons/mini_edit.png') no-repeat center center;
+}
+.icon-mini-refresh{
+	background:url('icons/mini_refresh.png') no-repeat center center;
+}
+
+.icon-large-picture{
+	background:url('icons/large_picture.png') no-repeat center center;
+}
+.icon-large-clipart{
+	background:url('icons/large_clipart.png') no-repeat center center;
+}
+.icon-large-shapes{
+	background:url('icons/large_shapes.png') no-repeat center center;
+}
+.icon-large-smartart{
+	background:url('icons/large_smartart.png') no-repeat center center;
+}
+.icon-large-chart{
+	background:url('icons/large_chart.png') no-repeat center center;
+}

@@ -1,0 +1,12 @@
+0：正常订单生成， createDate	datetime
+1: 订单付款 payDate
+2：发货	deliveryDate   deliveryNumber
+3：确认收货 confirmDate
+4: 用户评价，评分  commentDate  comment，score
+5: 追加评价  appendDate appendComment
+6~8: 保留，以后继续设计。
+9: 用户申请退款， 
+10：店家同意退款 
+-1:店家不同意退款
+
+	 

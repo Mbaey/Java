@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!--<properties url="file:///E:\\Workspaces\\Spring\\IntegrateMyBatis\\src\\main\\resources\\mysql.properties"/>-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 自动识别数据库关键字，默认false，如果设置为true，根据SqlReservedWords中定义的关键字列表；
+            一般保留默认值，遇到数据库关键字（Java关键字），使用columnOverride覆盖 -->
+        <property name="autoDelimitKeywords" value="false"/>
+        <!-- 生成的Java文件的编码-->
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!-- 格式化java代码-->
+        <property name="javaFormatter" value="org.mybatis.generator.api.dom.DefaultJavaFormatter"/>
+        <!-- 格式化XML代码-->
+        <property name="xmlFormatter" value="org.mybatis.generator.api.dom.DefaultXmlFormatter"/>
+        <!--beginningDelimiter和endingDelimiter：指明数据库的用于标记数据库对象名的符号，比如ORACLE就是双引号，MYSQL默认是`反引号； -->
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+        <!--数据库链接URL，用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/db_emall?characterEncoding=UTF-8"
+                        userId="root"
+                        password="root">
+            <!-- 这里面可以设置property属性，每一个property属性都设置到配置的Driver上-->
+        </jdbcConnection>
+        <!-- 非必需，类型处理器，在数据库类型和java类型之间的转换控制-->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+        <!-- 生成模型的包名和位置-->
+        <javaModelGenerator targetPackage="com.nwnu.emall.bean" targetProject="src">
+            <!--  for MyBatis3/MyBatis3Simple自动为每一个生成的类创建一个构造方法，构造方法包含了所有的field；
+            而不是使用setter；-->
+            <property name="constructorBased" value="false"/>
+            <!-- 是否允许子包，在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这
+            个package下，默认为false 即:targetPackage.schemaName.tableName -->
+            <property name="enableSubPackages" value="false"/>
+            <!-- for MyBatis3 / MyBatis3Simple是否创建一个不可变的类，如果为true，那么MBG会创建一个没
+            有setter只有构造方法的类，取而代之的是类似constructorBased的类 -->
+            <property name="immutable" value="false"/>
+            <!-- 给Model添加一个父类 -->
+            <!--<property name="rootClass" value="com.foo.louis.Hello"/>-->
+            <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!-- 生成映射文件的包名和位置-->
+        <sqlMapGenerator targetPackage="com.nwnu.emall.dao.mapper" targetProject="src">
+            <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+        <!-- 生成DAO的包名和位置-->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.nwnu.emall.dao" targetProject="src">
+            <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 可以为所有生成的接口添加一个父接口，但是MBG只负责生成，不负责检查-->
+            <!--<property name="rootInterface" value=""/>-->
+        </javaClientGenerator>
+        <!-- 要生成的表 tableName是数据库中的表名或视图名  domainObjectName是实体类名-->
+        <!--<table tableName="tb_addr" domainObjectName="Addr"/>-->
+        <!--<table tableName="tb_buy_record" domainObjectName="BuyRecord"/>-->
+        <!--<table tableName="tb_category" domainObjectName="Category"/>-->
+        <!--<table tableName="tb_city" domainObjectName="City"/>-->
+        <!--<table tableName="tb_customer" domainObjectName="Customer"/>-->
+        <!--<table tableName="tb_favorite" domainObjectName="Favorite"/>-->
+        <!--<table tableName="tb_goods_item" domainObjectName="GoodsItem">-->
+            <!--<columnOverride column="images" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+            <!--<columnOverride column="props" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="tb_order" domainObjectName="Order"/>-->
+        <table tableName="tb_orderitem" domainObjectName="OrderItem"/>
+        <!--<table tableName="tb_paymethod" domainObjectName="Paymethod"/>-->
+        <!--<table tableName="tb_prop_value" domainObjectName="PropValue"/>-->
+        <!--<table tableName="tb_props" domainObjectName="Props"/>-->
+        <!--<table tableName="tb_province" domainObjectName="Province"/>-->
+        <!--<table tableName="tb_sales" domainObjectName="Sales"/>-->
+        <!--<table tableName="tb_seller" domainObjectName="Seller"/>-->
+        <!--<table tableName="tb_sku" domainObjectName="Sku">-->
+            <!--<columnOverride column="propValuesJson" javaType="java.lang.String" jdbcType="VARCHAR" />-->
+        <!--</table>-->
+        <!--<table tableName="tb_town" domainObjectName="Town"/>-->
+        <!--数据库更新V0.3-> 0.4 propValue 是prop与sku多对多的关系。以前只以为是prop与propvalue一对多-->
+        <!--数据库更新v0.4-->
+            <!--1.tb_orderitem 与tb_buy_record的goodsId不再表示tb_goods_item 而表示tb_sku.因为顾客买的是唯一的sku-->
+            <!--2.tb_sku中新加入propValueJson 的属性，不然每次都得查表累死了。-->
+            <!--3.tb_orderItem 中加入 customerId，不然还要查customer的Order再查 orderItem。麻烦-->
+        <!--数据库更新v0.5-->
+            <!--1.突然发现tb_order_item 和tb_buy_record..是一个表啊。。当时想的一旦tb_order支付成功，OrderItem就消失，生成BuyRecord。这不就加一个status就可以了吗。。。。  脑子抽了-->
+            <!--2.但如果售后退款，销售记录，销量统计，评论模块都放在orderItem太过复杂。拆成tb_comment、tb_after_sales、tb_sales_statistic、
+            并且先不生成javaBean了-->
+
+    </context>
+</generatorConfiguration>
