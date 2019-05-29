@@ -1,4 +1,4 @@
-package com.nwnu.emall.configuration;
+package com.nwnu.bikesys.configuration;
 
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class DruidConfiguration {
+public class DruidServletAndFilter {
 
     /**
      * 注册一个StatViewServlet
